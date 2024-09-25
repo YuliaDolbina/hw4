@@ -1,8 +1,8 @@
 from string_utils import StringUtils
 
-def test_capitalize():
+def test_capitilize():
     string = StringUtils()
-    res = string.capitalize('word')
+    res = string.capitilize('word')
     assert res == 'Word'
 
 def test_trim():
