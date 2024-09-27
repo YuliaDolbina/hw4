@@ -1,0 +1,59 @@
+Нет обработки ошибок в каждой функции класса, в случае передачи аргумента неправильного типа
+
+Обработку ошибок можно было выполнить следующим образом:
+
+Для начала зададим класс, классифицирующий нашу ошибку, добавив в него шаблон сообщения об ошибке о некорректном типе переданного аргумента.
+
+
+from typing import Final
+
+
+class WrongVariableTypeError(BaseException):
+    WRONG_VARIABLE_TYPE_EXCEPTION_MESSAGE: Final[str] = 'Переменная: {var_name} должна быть типа: {class_type}'
+
+    def __init__(self, var_name: str, class_type: str) -> None:
+        self.message = self.WRONG_VARIABLE_TYPE_EXCEPTION_MESSAGE.format(var_name=var_name, class_type=class_type)
+        super().__init__(self.message)
+
+
+Далее в классе StringUtils, в каждой функции (на примере capitilize) проверим входные аргументы функцией isinstance на соответствие требуемому типу. В случае несоответствия, вызовем ошибку нашего собственного класса.
+
+
+class StringUtils:
+    """
+    Класс с полезными утилитами для обработки и анализа строк
+    """
+    
+    def capitilize(self, string: str) -> str:
+        """
+        Принимает на вход текст, делает первую букву заглавной и возвращает этот же текст
+        Пример: `capitilize("skypro") -> "Skypro"`
+        """
+        if isinstance(string, str):
+            return string.capitalize()
+        else:
+            raise WrongVariableTypeError(var_name='string', class_type='str')
+    ...
+
+Теперь для каждой функции правильным поведением, в случае, некорректного типа аргументов, будет вызов ошибки класса WrongVariableTypeError, с соответствующим сообщением внутри. Таким образом мы сможем проверять тестами обработку ошибок в функциях, в том числе, поведение функций, при некорректных аргументах, например:
+
+import pytest
+from string_utils import StringUtils
+from custom_exceptions import WrongVariableTypeError
+
+
+def test_capitilize_success():
+    string = StringUtils()
+    res = string.capitilize('word')
+    assert res == 'Word'
+
+def test_capitilize_raises_wrong_variable_type_error():
+    string = StringUtils()
+
+    with pytest.raises(WrongVariableTypeError) as error:
+        string.capitilize(1)
+
+    assert error.value.message == WrongVariableTypeError.WRONG_VARIABLE_TYPE_EXCEPTION_MESSAGE.format(
+        var_name='string',
+        class_type='str',
+    )
