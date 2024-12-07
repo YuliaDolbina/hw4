@@ -11,14 +11,25 @@ options.add_argument('--ignore-ssl-errors')
 driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=options)
 
 
-driver.get("http://uitestingplayground.com/dynamicid")
+driver.get("https://the-internet.herokuapp.com/login")
 
-button = "//*[@class='btn btn-primary']"
+input_username = "#username"
+input_password = "#password"
 
-search_input = driver.find_element(By.XPATH, button)
+search_input = driver.find_element(By.CSS_SELECTOR, input_username)
+sleep(1)
+search_input.send_keys("tomsmith")
 sleep(1)
 
-search_input.click()
+search_input = driver.find_element(By.CSS_SELECTOR, input_password)
+sleep(1)
+search_input.send_keys("SuperSecretPassword!")
+sleep(1)
+
+button = "#login > button > i"
+search_button = driver.find_element(By.CSS_SELECTOR, button)
+sleep(1)
+search_button.click()
 
 sleep(5)
 driver.close()

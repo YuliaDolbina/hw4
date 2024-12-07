@@ -11,9 +11,9 @@ options.add_argument('--ignore-ssl-errors')
 driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=options)
 
 
-driver.get("http://uitestingplayground.com/dynamicid")
+driver.get("http://uitestingplayground.com/classattr")
 
-button = "//*[@class='btn btn-primary']"
+button = "//*[@class='btn class1 btn-primary btn-test']"
 
 search_input = driver.find_element(By.XPATH, button)
 sleep(1)

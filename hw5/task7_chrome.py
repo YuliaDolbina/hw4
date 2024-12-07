@@ -11,14 +11,17 @@ options.add_argument('--ignore-ssl-errors')
 driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=options)
 
 
-driver.get("http://uitestingplayground.com/dynamicid")
+driver.get("https://the-internet.herokuapp.com/inputs")
 
-button = "//*[@class='btn btn-primary']"
+input = "#content > div > div > div > input[type=number]"
 
-search_input = driver.find_element(By.XPATH, button)
+search_input = driver.find_element(By.CSS_SELECTOR, input)
 sleep(1)
-
-search_input.click()
+search_input.send_keys("1000")
+sleep(1)
+search_input.clear()
+sleep(1)
+search_input.send_keys("999")
 
 sleep(5)
 driver.close()

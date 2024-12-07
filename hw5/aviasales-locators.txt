@@ -1,0 +1,7 @@
+Локатор логотипа (html-елемент, содержащий в себе значок и слово "авиасейлс") - body > div:nth-child(2) > div > div.s__TNNY1RZ8aoALnh_0FiU5.s__WFvfvnHkdQPh9yQmkawH > div
+Локатор поля Откуда - #avia_form_origin-input
+Локатор поля Куда - #avia_form_destination-input
+Локатор поля Когда -  body > div:nth-child(2) > div > div.s__MP3Uy8Md3yM6QWmzmVcl > div.s__N0nUznA9xLcRv3bXYsmV > div > div.s__FKt_57Z3lbn26yIqnsch > div > form > div.s__pSfvSdtvFETyJ2G3nPGM.s___wPneQkPvnkZOZslP5bw.s__mtImpdxqmb3FtpyrTsgk.s__kGy7Tb3xVjEevcmv8PDu > div > button.s__dF0HgOsMMy2ofyXcvtH_.s__baueeRnAUu_J55n12MRS.s__QOH8_RMDyCm4BxeyrqOt
+Локатор поля Обратно - body > div:nth-child(2) > div > div.s__MP3Uy8Md3yM6QWmzmVcl > div.s__N0nUznA9xLcRv3bXYsmV > div > div.s__FKt_57Z3lbn26yIqnsch > div > form > div.s__pSfvSdtvFETyJ2G3nPGM.s___wPneQkPvnkZOZslP5bw.s__mtImpdxqmb3FtpyrTsgk.s__kGy7Tb3xVjEevcmv8PDu > div > button.s__dF0HgOsMMy2ofyXcvtH_.s__baueeRnAUu_J55n12MRS.s__qO2qUuaHHBMsAgKGqoWL.s__iyTMhvd48siOyWFvga_5
+Локатор чек-бокса "Открыть Ostrovok.ru в новой вкладке" - body > div:nth-child(2) > div > div.s__MP3Uy8Md3yM6QWmzmVcl > div.s__N0nUznA9xLcRv3bXYsmV > div > div.s__FKt_57Z3lbn26yIqnsch > div > form > footer > div > label > input[type=checkbox]
+Локатор кнопки Найти билеты - body > div:nth-child(2) > div > div.s__MP3Uy8Md3yM6QWmzmVcl > div.s__N0nUznA9xLcRv3bXYsmV > div > div.s__FKt_57Z3lbn26yIqnsch > div > form > div.s__Yzjov8gtTIwlOo3oK8L3 > button

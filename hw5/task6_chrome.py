@@ -11,14 +11,13 @@ options.add_argument('--ignore-ssl-errors')
 driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=options)
 
 
-driver.get("http://uitestingplayground.com/dynamicid")
+driver.get("http://the-internet.herokuapp.com/entry_ad")
 
-button = "//*[@class='btn btn-primary']"
+button = "//*[@class='modal-footer']"
 
-search_input = driver.find_element(By.XPATH, button)
+search_modal = driver.find_element(By.XPATH, button)
 sleep(1)
-
-search_input.click()
+driver.execute_script('arguments[0].click()', search_modal)
 
 sleep(5)
 driver.close()

@@ -11,11 +11,19 @@ driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install())
 
 driver.get("http://the-internet.herokuapp.com/add_remove_elements/")
 
-button = "div.example"
+button = "#content > div > button"
 
-search_input = driver.find_element(By.CSS_SELECTOR, button) 
-search_input.send_keys(Keys.RETURN)
+search_input = driver.find_element(By.CSS_SELECTOR, button)
+sleep(1)
+for _ in range(5):
+    search_input.click()
+    sleep(1)
 
-sleep(10)
+list_of_buttons = "added-manually"
+search_list = driver.find_elements(By.CLASS_NAME, list_of_buttons)
+print("Количество кнопок:", len(search_list))
+
+sleep(5)
+driver.close()
 
 
