@@ -10,7 +10,12 @@ options.add_argument('--ignore-certificate-errors')
 options.add_argument('--ignore-ssl-errors')
 driver = webdriver.Firefox(service=FirefoxService(FirefoxManager().install()), options=options)
 
-driver.get("https://the-internet.herokuapp.com/login")
+driver.get("")
+
+
+enter = "body"
+search_enter = driver.find_element(By.CSS_SELECTOR, enter)
+
 
 input_username = "#username"
 input_password = "#password"
@@ -32,6 +37,3 @@ search_button.click()
 
 sleep(5)
 driver.close()
-
-
-
