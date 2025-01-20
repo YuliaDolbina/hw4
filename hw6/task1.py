@@ -16,7 +16,7 @@ browser.find_element(By.CSS_SELECTOR, button).click()
 
 text = "#content > p"
 try:
-    element = WebDriverWait(browser, 15).until(
+    element = WebDriverWait(browser, 30).until(
         expected_conditions.presence_of_element_located((By.CSS_SELECTOR, text))
     )
 except Exception:

@@ -12,7 +12,7 @@ browser.get("https://bonigarcia.dev/selenium-webdriver-java/loading-images.html"
 
 image_id = "award"
 try:
-    element = WebDriverWait(browser, 15).until(
+    element = WebDriverWait(browser, 20).until(
         expected_conditions.presence_of_element_located((By.ID, image_id))
     )
 except Exception:
