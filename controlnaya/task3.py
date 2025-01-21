@@ -24,24 +24,24 @@ sleep(1)
 
 button = "#login-button"
 search_button = browser.find_element(By.CSS_SELECTOR, button).click()
-sleep(5)
+sleep(1)
 
 add_to_cart1 = browser.find_element(By.CSS_SELECTOR, "#add-to-cart-sauce-labs-backpack").click()
 
-sleep(2)
+sleep(1)
 add_to_cart2 = browser.find_element(By.CSS_SELECTOR, "#add-to-cart-sauce-labs-bolt-t-shirt").click()
 
-sleep(2)
+sleep(1)
 add_to_cart3 = browser.find_element(By.CSS_SELECTOR, "#add-to-cart-sauce-labs-onesie").click()
 
-sleep(2)
+sleep(1)
 cart = browser.find_element(By.CSS_SELECTOR, "#shopping_cart_container > a").click()
 
-sleep(2)
+sleep(1)
 
 checkout = browser.find_element(By.CSS_SELECTOR, "#checkout").click()
 
-sleep(3)
+sleep(1)
 
 name = browser.find_element(By.CSS_SELECTOR, "#first-name").send_keys("Юлия")
 
@@ -49,11 +49,11 @@ last_name = browser.find_element(By.CSS_SELECTOR, "#last-name").send_keys("До�
 
 code = browser.find_element(By.CSS_SELECTOR, "#postal-code").send_keys(111222)
 
-sleep(5)
+sleep(1)
 
 button_continue = browser.find_element(By.CSS_SELECTOR, "#continue").click()
 
-sleep(3)
+sleep(1)
 
 total = browser.find_element(By.CSS_SELECTOR, "#checkout_summary_container > div > div.summary_info > div.summary_total_label")
 
