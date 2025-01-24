@@ -74,3 +74,5 @@ def test_fields_color() -> None:
 
 if __name__ == "__main__":
     test_fields_color()
+
+
