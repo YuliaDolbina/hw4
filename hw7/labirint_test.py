@@ -8,7 +8,7 @@ from selenium.webdriver.common.by import By
 cookie = {"name": "cookie_policy",
           "value": "1"}
 
-browser = browser = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
+browser = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
 
 def open_labirint ():
     browser.get("https://www.labirint.ru")
