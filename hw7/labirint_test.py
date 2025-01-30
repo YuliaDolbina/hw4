@@ -21,7 +21,7 @@ def search(term):
     browser.find_element(By.CSS_SELECTOR, "#searchform > div.b-search-e-input-wrapper > button > span.b-header-b-search-e-btntxt").click()
 
 def add_books():
-    buy_buttons = browser.find_element(By.CSS_SELECTOR, "._btn.btn-tocart.buy-link")
+    buy_buttons = browser.find_elements(By.CSS_SELECTOR, "._btn.btn-tocart.buy-link")
     counter = 0
     for btn in buy_buttons:
         btn.click()
@@ -34,7 +34,7 @@ def go_to_cart():
 
 def get_cart_count():
     txt = browser.find_element(By.CSS_SELECTOR, "#basket-default-prod-count2").text
-    return int(txt)
+    return txt
 
 def close_browser():
     browser.quit()
@@ -53,7 +53,7 @@ def test_cart_counter():
 
     close_browser()
 
-    assert added == cart_count
+    assert added == int(cart_count.replace(" товара", ""))
     
 
     
