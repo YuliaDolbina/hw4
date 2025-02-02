@@ -37,7 +37,6 @@ def test_sum_success():
     sleep (45)
 
     sum = browser.find_element(By.CSS_SELECTOR, text)
-
     print(sum.text)
 
     assert sum.text == "15"

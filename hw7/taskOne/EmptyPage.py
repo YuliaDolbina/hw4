@@ -8,7 +8,7 @@ class EmptyPage:
         self._driver.get("https://bonigarcia.dev/selenium-webdriver-java/data-types.html")
 
 
-    def fill_in_the_gaps():
+    def fill_in_the_gaps(self):
 
         first_name_id = "first-name"
         last_name_id = "last-name"
@@ -21,21 +21,21 @@ class EmptyPage:
         job_id = "job-position"
         company_id = "company"
 
-        find_element_by(browser, By.NAME, first_name_id).send_keys("Иван")
-        find_element_by(browser, By.NAME, last_name_id).send_keys("Петров")
-        find_element_by(browser, By.NAME, address_id).send_keys("Ленина, 55-3")
-        find_element_by(browser, By.NAME, zip_id).send_keys("")
-        find_element_by(browser, By.NAME, city_id).send_keys("Москва")
-        find_element_by(browser, By.NAME, country_id).send_keys("Россия")
-        find_element_by(browser, By.NAME, email_id).send_keys("test@skypro.com")
-        find_element_by(browser, By.NAME, phone_id).send_keys("+7985899998787")
-        find_element_by(browser, By.NAME, job_id).send_keys("QA")
-        find_element_by(browser, By.NAME, company_id).send_keys("SkyPro")
+        find_element_by(self._driver, By.NAME, first_name_id).send_keys("Иван")
+        find_element_by(self._driver, By.NAME, last_name_id).send_keys("Петров")
+        find_element_by(self._driver, By.NAME, address_id).send_keys("Ленина, 55-3")
+        find_element_by(self._driver, By.NAME, zip_id).send_keys("")
+        find_element_by(self._driver, By.NAME, city_id).send_keys("Москва")
+        find_element_by(self._driver, By.NAME, country_id).send_keys("Россия")
+        find_element_by(self._driver, By.NAME, email_id).send_keys("test@skypro.com")
+        find_element_by(self._driver, By.NAME, phone_id).send_keys("+7985899998787")
+        find_element_by(self._driver, By.NAME, job_id).send_keys("QA")
+        find_element_by(self._driver, By.NAME, company_id).send_keys("SkyPro")
 
 
-    def submit():
+    def submit(self):
        
        button_path = "body > main > div > form > div:nth-child(5) > div > button"
-       button = browser.find_element(By.CSS_SELECTOR, button_path)
-       ActionChains(browser).move_to_element(button).perform()
+       button = self._driver.find_element(By.CSS_SELECTOR, button_path)
+       ActionChains(self._driver).move_to_element(button).perform()
        button.click()
