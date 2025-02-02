@@ -1,5 +1,6 @@
 from selenium.webdriver.common.by import By
 
+
 class MainPage:
 
     def __init__(self, driver):
@@ -10,12 +11,12 @@ class MainPage:
 
     def set_cookie_policy(self):
 
-        cookie = {"name": "cookie_policy",
-          "value": "1"}
+        cookie = {"name": "cookie_policy", "value": "1"}
         
         self._driver.add_cookie(cookie)
-        print('меня вызвали')
 
     def search(self, term):
         self._driver.find_element(By.CSS_SELECTOR, "#search-field").send_keys(term)
-        self._driver.find_element(By.CSS_SELECTOR, "#searchform > div.b-search-e-input-wrapper > button > span.b-header-b-search-e-btntxt").click()
+        self._driver.find_element(
+            By.CSS_SELECTOR, "#searchform > div.b-search-e-input-wrapper > button > span.b-header-b-search-e-btntxt"
+        ).click()
