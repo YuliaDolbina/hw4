@@ -3,8 +3,8 @@ from selenium.webdriver.chrome.service import Service as ChromeService
 from webdriver_manager.chrome import ChromeDriverManager
 
 
-from taskOne.EmptyPage import EmptyPage
-from taskOne.FilledPage import FilledPage
+from EmptyPage import EmptyPage
+from FilledPage import FilledPage
 
 def test_color():
     browser = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))

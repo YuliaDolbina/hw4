@@ -26,9 +26,8 @@ class Sum:
         num5.click()
 
         text = "#calculator > div.top > div"
-        sleep (45)
-
-        sum = self._driver.find_element(By.CSS_SELECTOR, text)
-        print(sum.text)
+    
+        num = self._driver.find_element(By.CSS_SELECTOR, text)
+        print(num.text)
 
 

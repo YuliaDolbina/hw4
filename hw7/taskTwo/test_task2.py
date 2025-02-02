@@ -4,12 +4,12 @@ from selenium.webdriver.remote.webelement import WebElement
 from selenium.webdriver.chrome.service import Service as ChromeService
 from webdriver_manager.chrome import ChromeDriverManager
 
-from taskTwo.Sum import Sum
+from Summa import Sum
 
 def test_summa():
     browser = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
-    result = Sum(browser)
-    result.summa()
+    sum = Sum(browser)
+    result = sum.summa()
 
-    assert sum.text == "15"
+    assert result == "15"
 
