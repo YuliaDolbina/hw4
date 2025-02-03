@@ -7,7 +7,7 @@ class FilledPage:
 
 
     def getting_ids(self):
-        
+                
         first_name = find_element_by(self._driver, By.ID, first_name_id)
         last_name = find_element_by(self._driver, By.ID, last_name_id)
         address = find_element_by(self._driver, By.ID, address_id)

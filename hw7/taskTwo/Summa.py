@@ -1,4 +1,4 @@
-from time import sleep
+from time import sleep 
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.action_chains import ActionChains
 
@@ -24,6 +24,8 @@ class Sum:
         num5 = self._driver.find_element(By.CSS_SELECTOR, "#calculator > div.keys > span.btn.btn-outline-warning")
         ActionChains(self._driver).move_to_element(num5).perform()
         num5.click()
+
+        sleep(45)
 
         text = "#calculator > div.top > div"
     

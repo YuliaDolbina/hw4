@@ -39,3 +39,4 @@ class EmptyPage:
        button = self._driver.find_element(By.CSS_SELECTOR, button_path)
        ActionChains(self._driver).move_to_element(button).perform()
        button.click()
+

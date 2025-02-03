@@ -1,13 +1,17 @@
-from selenium import webdriver
+from selenium.webdriver import Chrome
+from selenium.webdriver.remote.webelement import WebElement
+from selenium.webdriver.support.color import Color
 from selenium.webdriver.chrome.service import Service as ChromeService
 from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.action_chains import ActionChains
 
 
 from EmptyPage import EmptyPage
 from FilledPage import FilledPage
 
 def test_color():
-    browser = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
+    browser = Chrome(service=ChromeService(ChromeDriverManager().install()))
     empty_page = EmptyPage(browser)
     empty_page.fill_in_the_gaps()
     empty_page.submit()
