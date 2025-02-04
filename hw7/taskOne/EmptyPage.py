@@ -1,3 +1,5 @@
+from selenium.webdriver import Chrome
+from selenium.webdriver.remote.webelement import WebElement
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.action_chains import ActionChains
 
@@ -7,7 +9,9 @@ class EmptyPage:
         self._driver = driver
         self._driver.get("https://bonigarcia.dev/selenium-webdriver-java/data-types.html")
 
-
+    def find_element_by(self._driver:Chrome, by:By, path:str) -> WebElement:
+        return self._driver.find_element_by(by,path)
+    
     def fill_in_the_gaps(self):
 
         first_name_id = "first-name"
@@ -39,4 +43,22 @@ class EmptyPage:
        button = self._driver.find_element(By.CSS_SELECTOR, button_path)
        ActionChains(self._driver).move_to_element(button).perform()
        button.click()
+
+
+
+    def getting_ids(self):
+                
+        first_name = find_element_by(self._driver, By.ID, first_name_id)
+        last_name = find_element_by(self._driver, By.ID, last_name_id)
+        address = find_element_by(self._driver, By.ID, address_id)
+        zip_code = find_element_by(self._driver, By.ID, zip_id)
+        city = find_element_by(self._driver, By.ID, city_id)
+        country = find_element_by(self._driver, By.ID, country_id)
+        email = find_element_by(self._driver, By.ID, email_id)
+        phone = find_element_by(self._driver, By.ID, phone_id)
+        job = find_element_by(self._driver, By.ID, job_id)
+        company = find_element_by(self._driver, By.ID, company_id) 
+
+
+
 

@@ -8,16 +8,15 @@ from selenium.webdriver.common.action_chains import ActionChains
 
 
 from EmptyPage import EmptyPage
-from FilledPage import FilledPage
+
 
 def test_color():
     browser = Chrome(service=ChromeService(ChromeDriverManager().install()))
     empty_page = EmptyPage(browser)
+    empty_page.find_element_by()
     empty_page.fill_in_the_gaps()
     empty_page.submit()
-
-    filled_page = FilledPage(browser)
-    filled_page.getting_ids()
+    empty_page.getting_ids()
 
     green_color = "#0f5132"
     red_color = "#842029"

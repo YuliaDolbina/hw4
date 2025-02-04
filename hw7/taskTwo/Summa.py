@@ -25,11 +25,15 @@ class Sum:
         ActionChains(self._driver).move_to_element(num5).perform()
         num5.click()
 
+
         sleep(45)
 
         text = "#calculator > div.top > div"
     
         num = self._driver.find_element(By.CSS_SELECTOR, text)
-        print(num.text)
+
+        return num.text 
+    
+        
 
 
