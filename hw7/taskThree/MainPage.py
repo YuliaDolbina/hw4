@@ -28,7 +28,22 @@ class MainPage:
         search_button = self._driver.find_element(By.CSS_SELECTOR, button)
         ActionChains(self._driver).move_to_element(search_button).perform()
         search_button.click()
+        
+    def add_to_cart(self):
+        thing1 = self._driver.find_element(By.CSS_SELECTOR, "#add-to-cart-sauce-labs-backpack")
+        ActionChains(self._driver).move_to_element(thing1).perform()
+        thing1.click()
+
+        thing2 = self._driver.find_element(By.CSS_SELECTOR, "#add-to-cart-sauce-labs-bolt-t-shirt")
+        ActionChains(self._driver).move_to_element(thing2).perform()
+        thing2.click()
+
+        thing3 = self._driver.find_element(By.CSS_SELECTOR, "#add-to-cart-sauce-labs-onesie")
+        ActionChains(self._driver).move_to_element(thing3).perform()
+        thing3.click()  
+
+      
 
 
-    def 
+
     
