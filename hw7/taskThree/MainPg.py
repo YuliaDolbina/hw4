@@ -4,7 +4,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.action_chains import ActionChains
 
 
-class MainPage:
+class MainPg:
     def __init__(self, driver):
         self._driver = driver
         self._driver.get("https://www.saucedemo.com/")
