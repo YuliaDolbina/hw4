@@ -13,7 +13,6 @@ from EmptyPage import EmptyPage
 def test_color():
     browser = Chrome(service=ChromeService(ChromeDriverManager().install()))
     empty_page = EmptyPage(browser)
-    empty_page.find_element_by()
     empty_page.fill_in_the_gaps()
     empty_page.submit()
     empty_page.getting_ids()
