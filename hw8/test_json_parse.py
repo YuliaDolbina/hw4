@@ -12,4 +12,4 @@ company_json = """{
 
 def test_parse_json():
     company = json.loads(company_json)
-    assert company [@]
+    assert company ["id"] == 111
