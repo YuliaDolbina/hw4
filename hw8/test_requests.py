@@ -19,9 +19,21 @@ def test_auth():
              }
    
     resp = requests.post(base_url+"/auth/login", json=creds)
-    
-    
+        
     assert resp.status_code == 200
+
+
+def test_create_company():
+    company = {
+        "name": "python",
+        "description": "requests"
+    }
+
+    resp = requests.post(base_url+"/company/create", json=company)
+
+    assert resp.status_code == 201
+
+
 
 
     
