@@ -35,14 +35,14 @@ class EmployeeApi:
         return resp.json()["user_token"]
     
 
-    def edit_employee(self,id, new_first_name, new_email):
+    def edit_employee(self,new_id, new_first_name, new_email):
         client_token = self.get_token()
-        url_with_token = f"{self.url}/company/update/{id}?client_token={client_token}"
+        url_with_token = f"{self.url}/company/update/{new_id}?client_token={client_token}"
 
         employee = {
-            "name": new_first_name,
+            "first_name": new_first_name,
             "email": new_email
-        }
+            }
         resp = requests.patch(url_with_token, json=employee)
         return resp.json()    
 
