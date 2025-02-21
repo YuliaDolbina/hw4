@@ -1,5 +1,5 @@
-from sqlalchemy import create_engine
-from sqlalchemy.sql import text
+from sqlalchemy import create_engine, text
+from sqlalchemy.orm import sessionmaker, declarative_base
 
 
 db_connection_string = "postgresql://qa:skyqa@5.101.50.27:5432/x_clients"
@@ -18,10 +18,12 @@ class CompanyTable:
 
     def __init__(self, connection_string):
         self.db = create_engine(connection_string)
+        Base = declarative_base()
+        session = sessionmaker(bind=self.db, expire_on_commit=False)
 
 
     def get_companies(self):
-        return self.db.execute(self.scripts["select"]).fetchall()
+        return self.db.session().execute(self.scripts["select"]).fetchall()
 
 
     def get_active_companies(self):

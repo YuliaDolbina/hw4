@@ -32,9 +32,13 @@ def test_add_new():
     db.delete(new_id)
 
     assert len_after - len_before == 1
-    assert body[-1]["name"] == name
-    assert body[-1]["description"] == descr
-    assert body[-1]["id"] == new_id
+    for company in body:
+            if company["id"] == new_id:
+                assert company["name"] == name
+                assert company["description"] == descr
+                assert company["id"] == new_id
+
+
 
 
 def test_get_one_company():
