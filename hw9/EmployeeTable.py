@@ -40,6 +40,6 @@ class EmployeeTable:
         return self.session().execute(text(f"delete from employee where id = {id}"))
     
     def get_list_company_id(self, company_id):
-        return self.session().execute(text(f"select * from employee where company_id = {company_id}")).fetchone()
+        return self.session().execute(text(f"select * from employee where company_id = {company_id}")).fetchall()
 
 ## pytest -v hw9/test_employee_db.py

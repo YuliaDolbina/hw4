@@ -1,18 +1,21 @@
-import requests
+import allure
 from CompanyApi import CompanyApi
 
 api = CompanyApi("http://5.101.50.27:8000")
 
+@allure.id("Skypro-1")
 def test_get_companies():
     body = api.get_company_list()
     assert len(body) > 0
 
+@allure.id("Skypro-2")
 def test_get_active_companies():
     full_list = api.get_company_list()
     filtered_list = api.get_company_list(params_to_add={"active": "true"})
 
     assert len(full_list) > len(filtered_list)
 
+@allure.id("Skypro-3")
 def test_add_new():
     body = api.get_company_list()
     len_before = len(body)
@@ -30,7 +33,7 @@ def test_add_new():
     assert body[-1]["description"] == descr
     assert body[-1]["id"] == new_id
 
-
+@allure.id("Skypro-4")
 def test_get_one_company():
     name = "VS Code"
     descr = "IDE"
@@ -43,7 +46,7 @@ def test_get_one_company():
     assert new_company["name"] == name
     assert new_company["description"] == descr
 
-
+@allure.id("Skypro-5")
 def test_edit():
     name = "company to edit"
     descr = "IDE"
@@ -58,6 +61,7 @@ def test_edit():
     assert edited["description"] == new_descr
 
 
+@allure.id("Skypro-6")
 def test_delete():
     name = "company to delete"
     result = api.create_company(name)
@@ -69,7 +73,7 @@ def test_delete():
     assert deleted['detail'] == 'Компания не найдена'
 
 
-
+@allure.id("Skypro-7")
 def test_deactivate():
     name = "company to deactivate"
     result = api.create_company(name)
