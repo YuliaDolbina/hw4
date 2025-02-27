@@ -8,6 +8,9 @@ from webdriver_manager.chrome import ChromeDriverManager
 from Summa import Sum
 
 @allure.title("Проверка сложения")
+@allure.description("Проверка калькулятора, сложение")
+@allure.feature("READ")
+@allure.severity("Major")
 def test_summa():
     browser = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
     sum = Sum(browser)

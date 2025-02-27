@@ -7,14 +7,14 @@ class EmployeeApi:
     def __init__(self, url):
         self.url = url
 
-    @allure.step("api.Получить информацию по сотруднике по id")
+    @allure.step("api.Получить информацию по сотруднике по {id}")
     def get_info(self, id):
         resp = requests.get(self.url + "/employee/info/" + str(id))
 
         return resp.json()
 
     @allure.step("api.Создать сотрудника")
-    def create_employee(self, first_name, last_name, middle_name, company_id, email, phone, birthdate, is_active):
+    def create_employee(self, first_name : str, last_name : str, middle_name : str, company_id : int, email : str, phone : int, birthdate : int, is_active : bool):
         employee = {
             "first_name": first_name,
             "last_name": last_name,
@@ -39,7 +39,7 @@ class EmployeeApi:
         return resp.json()["user_token"]
 
     @allure.step("api.Редактировать сотрудника")
-    def edit_employee(self, employee_id, new_last_name, new_email, new_phone):
+    def edit_employee(self, employee_id : int, new_last_name : str, new_email : str, new_phone : int):
         client_token = self.get_token()
         url_with_token = f"{self.url}/employee/change/{employee_id}?client_token={client_token}"
 
@@ -54,7 +54,7 @@ class EmployeeApi:
         return resp.json()
     
 
-    @allure.step("api.Получить список сотрудников по id компании")
+    @allure.step("api.Получить список сотрудников по {company_id} компании")
     def get_list_company_id(self, company_id):
         resp = requests.get(self.url+"/employee/list/"+ str(company_id))
         return resp.json()

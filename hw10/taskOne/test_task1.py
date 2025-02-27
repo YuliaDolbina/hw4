@@ -6,6 +6,9 @@ import allure
 from EmptyPage import EmptyPage
 
 @allure.title("Проверить становится ли красным незаполненное поле")
+@allure.description("Какие поля необходимо заполнить обязательно")
+@allure.feature("READ")
+@allure.severity("Trivial")
 def test_color():
     browser = Chrome(service=ChromeService(ChromeDriverManager().install()))
 

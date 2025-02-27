@@ -11,6 +11,9 @@ from MainPg import MainPg
 from Cart import Cart
 
 @allure.title("Проверить стоимость товаров в корзине")
+@allure.description("Получение итоговой стоимости корзины")
+@allure.feature("READ")
+@allure.severity("Major")
 def test_number_of_goods():
     browser = Chrome(service=ChromeService(ChromeDriverManager().install()))
 

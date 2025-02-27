@@ -6,7 +6,10 @@ from EmployeeTable import EmployeeTable
 db = EmployeeTable("postgresql://qa:skyqa@5.101.50.27:5432/x_clients")
 api = EmployeeApi("http://5.101.50.27:8000")
 
-@allure.title("Получение информации о сотруднике")
+@allure.title("Получение информации о сотруднике {first_name}  {last_name}")
+@allure.description("Получение информации о сотруднике")
+@allure.feature("READ")
+@allure.severity("Trivial")
 def test_to_get_info():
     first_name = "Snow"
     last_name = "White"
@@ -27,7 +30,10 @@ def test_to_get_info():
     with allure.step("Сравнить списки"):
         assert list(employee_from_api.values()) == list(created_employee)
 
-@allure.title("Получение списка сотрудников по id компании")
+@allure.title("Получение списка сотрудников по {company_id} компании")
+@allure.description("Получение списка сотрудников по id компании")
+@allure.feature("READ")
+@allure.severity("Trivial")
 def test_get_list_company_id():
 
     company_id = 3
@@ -37,6 +43,9 @@ def test_get_list_company_id():
         assert len(body) == len(body_db)
 
 @allure.title("Создание нового сотрудника")
+@allure.description("Добавление сотрудника и информации о нем")
+@allure.feature("CREATE")
+@allure.severity("Major")
 def test_create_employee():
     first_name = "TOM"
     last_name = "Green"
@@ -57,7 +66,10 @@ def test_create_employee():
         assert result[1] == first_name
         assert result_api["last_name"] == result[2]
 
-@allure.title("Редактирование информации о сотруднике")
+@allure.title("Редактирование информации о сотруднике {first_name}  {last_name}")
+@allure.description("Внесение изменений в информацию о сотруднике")
+@allure.feature("UPDATE")
+@allure.severity("Trivial")
 def test_edit_employee():
     first_name = "TOM"
     last_name = "Green"
