@@ -1,12 +1,12 @@
 from datetime import datetime
-
+import allure
 from EmployeeApi import EmployeeApi
 from EmployeeTable import EmployeeTable
 
 db = EmployeeTable("postgresql://qa:skyqa@5.101.50.27:5432/x_clients")
 api = EmployeeApi("http://5.101.50.27:8000")
 
-
+@allure.title("Получение информации о сотруднике")
 def test_to_get_info():
     first_name = "Snow"
     last_name = "White"
@@ -24,17 +24,19 @@ def test_to_get_info():
     db.delete(created_employee[0])
 
     employee_from_api["birthdate"] = datetime.strptime(employee_from_api["birthdate"], "%Y-%m-%d").date()
-    assert list(employee_from_api.values()) == list(created_employee)
+    with allure.step("Сравнить списки"):
+        assert list(employee_from_api.values()) == list(created_employee)
 
-
+@allure.title("Получение списка сотрудников по id компании")
 def test_get_list_company_id():
 
     company_id = 3
     body = api.get_list_company_id(company_id)
     body_db = db.get_list_company_id(company_id)
-    assert len(body) == len(body_db)
+    with allure.step("Сравнить длину списков"):
+        assert len(body) == len(body_db)
 
-
+@allure.title("Создание нового сотрудника")
 def test_create_employee():
     first_name = "TOM"
     last_name = "Green"
@@ -51,11 +53,11 @@ def test_create_employee():
     result_api = api.get_info(new_id)
 
     db.delete(new_id)
+    with allure.step("Имя и фамилия по апи и из бд совпадают"):
+        assert result[1] == first_name
+        assert result_api["last_name"] == result[2]
 
-    assert result[1] == first_name
-    assert result_api["last_name"] == result[2]
-
-
+@allure.title("Редактирование информации о сотруднике")
 def test_edit_employee():
     first_name = "TOM"
     last_name = "Green"
@@ -75,7 +77,7 @@ def test_edit_employee():
 
     employee_from_db = db.get_info(employee_id)
     db.delete(employee_id)
-
-    assert edited["last_name"] == new_last_name
-    assert edited["email"] == new_email
-    assert employee_from_db[0] == employee_id
+    with allure.step("Сравнить информацию из бд и по апи"):
+        assert edited["last_name"] == new_last_name
+        assert edited["email"] == new_email
+        assert employee_from_db[0] == employee_id

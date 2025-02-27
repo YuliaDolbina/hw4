@@ -1,3 +1,4 @@
+import allure
 from selenium import webdriver
 from selenium.webdriver import Chrome
 from selenium.webdriver.remote.webelement import WebElement
@@ -9,6 +10,7 @@ from selenium.webdriver.common.action_chains import ActionChains
 from MainPg import MainPg
 from Cart import Cart
 
+@allure.title("Проверить стоимость товаров в корзине")
 def test_number_of_goods():
     browser = Chrome(service=ChromeService(ChromeDriverManager().install()))
 
@@ -21,8 +23,8 @@ def test_number_of_goods():
     cart.checkout()
     cart.filling_the_application()
     price = cart.total()
-
-    assert price == "Total: $58.29"
+    with allure.step("Проверка цены"):
+        assert price == "Total: $58.29"
 
 
 

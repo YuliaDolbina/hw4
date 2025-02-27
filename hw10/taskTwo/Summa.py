@@ -1,4 +1,5 @@
 from time import sleep 
+import allure
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.action_chains import ActionChains
 
@@ -7,6 +8,7 @@ class Sum:
         self._driver = driver
         self._driver.get("https://bonigarcia.dev/selenium-webdriver-java/slow-calculator.html")
 
+    @allure.step("Сложение")
     def summa(self):
         num1 = self._driver.find_element(By.CSS_SELECTOR, "#delay")
         num1.clear()

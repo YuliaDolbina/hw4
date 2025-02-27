@@ -1,3 +1,4 @@
+import allure
 from selenium import webdriver
 from selenium.webdriver import Chrome
 from selenium.webdriver.remote.webelement import WebElement
@@ -6,10 +7,11 @@ from webdriver_manager.chrome import ChromeDriverManager
 
 from Summa import Sum
 
+@allure.title("Проверка сложения")
 def test_summa():
     browser = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
     sum = Sum(browser)
     result = sum.summa()
-
-    assert result == "15"
+    with allure.step("Проверить результат"):
+        assert result == "15"
 
