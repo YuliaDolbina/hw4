@@ -4,18 +4,25 @@ from CompanyApi import CompanyApi
 api = CompanyApi("http://5.101.50.27:8000")
 
 @allure.id("Skypro-1")
+@allure.story("Getting the list of companies")
 def test_get_companies():
-    body = api.get_company_list()
-    assert len(body) > 0
+    with allure.step("To get the list"):
+        body = api.get_company_list()
+        assert len(body) > 0
 
 @allure.id("Skypro-2")
+@allure.story("Getting the list of active companies")
+@allure.title("Получение активных компаний")
 def test_get_active_companies():
-    full_list = api.get_company_list()
-    filtered_list = api.get_company_list(params_to_add={"active": "true"})
-
-    assert len(full_list) > len(filtered_list)
+    with allure.step("All companies"):
+        full_list = api.get_company_list()
+    with allure.step("Active companies only"):
+        filtered_list = api.get_company_list(params_to_add={"active": "true"})
+    with allure.step("Compare lists"):
+        assert len(full_list) > len(filtered_list)
 
 @allure.id("Skypro-3")
+@allure.story("Adding a new company")
 def test_add_new():
     body = api.get_company_list()
     len_before = len(body)
